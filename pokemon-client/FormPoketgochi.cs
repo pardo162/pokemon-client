@@ -125,7 +125,8 @@ namespace pokemon_client
             {
                 selectedPk = comboBoxPokemons.SelectedIndex;
                 labelType.Text = pokemonsType[selectedPk];
-                labelHP.Text = "HP: " + (int)(pokemonsMaxHealth[selectedPk] * ((float)pokemonsHealth[selectedPk] / 100)) + "/" + pokemonsMaxHealth[selectedPk];
+                labelHP.Text = "HP: " + (int)((pokemonsMaxHealth[selectedPk] + 0.1f * pokemonsLevel[selectedPk]) * ((float)pokemonsHealth[selectedPk] / 100)) +
+                    "/" + (int)(pokemonsMaxHealth[selectedPk] + 0.1f * pokemonsLevel[selectedPk]);
                 labelAttack.Text = "Att: " + pokemonsAttack[selectedPk];
                 labelLevel.Text = "Exp: " + pokemonsLevel[selectedPk];
                 Image imagePokemon = Image.FromFile("pokemon" + pokemonsId[selectedPk] + ".png");
@@ -135,14 +136,14 @@ namespace pokemon_client
 
         private void buttonFight_Click(object sender, EventArgs e)
         {
-            if(!loading)
+            if(!loading && pokemonsHealth[selectedPk] > 10)
             {
                 loading = true;
                 buttonFight.Hide();
                 buttonFeed.Hide();
-                fighterHealth = (int)(pokemonsMaxHealth[selectedPk] * ((float)pokemonsHealth[selectedPk] / 100));
-                fighterMaxHealth = pokemonsMaxHealth[selectedPk];
-                fighterAttack = pokemonsAttack[selectedPk];
+                fighterHealth = (int)((pokemonsMaxHealth[selectedPk] + 0.1f * pokemonsLevel[selectedPk]) * ((float)pokemonsHealth[selectedPk] / 100));
+                fighterMaxHealth = (int)(pokemonsMaxHealth[selectedPk] + 0.1f * pokemonsLevel[selectedPk]);
+                fighterAttack = (int)(pokemonsAttack[selectedPk] + 0.05f * pokemonsLevel[selectedPk]);
                 _ = GetRival();
             }
         }
@@ -221,7 +222,6 @@ namespace pokemon_client
             {
                 pictureHit1.Show();
                 damage = random.Next(1, rivalAttack);
-                damage = 5;
                 fighterHealth = fighterHealth - damage;
                 if (fighterHealth < 0) { fighterHealth = 0; }
                 labelHealth1.Text = "HP: " + fighterHealth + "/" + fighterMaxHealth;
@@ -249,7 +249,6 @@ namespace pokemon_client
         {
             int fighterId = pokemonsId[selectedPk];
             float healthAux = ((float)fighterHealth / (float)fighterMaxHealth) * 100;
-            MessageBox.Show(fighterHealth + " " + fighterMaxHealth + " " + healthAux);
             int healthPercentage = (int)healthAux;
             pokemonsHealth[selectedPk] = healthPercentage;
             HttpClient client = new HttpClient();
@@ -273,6 +272,7 @@ namespace pokemon_client
                     pokemonsLevel.Add(0);
                 }
             }
+            loading = false;
             HideFightGui();
         }
 
@@ -323,8 +323,9 @@ namespace pokemon_client
             buttonFight.Show();
             comboBoxPokemons.SelectedIndex = 0;
             labelType.Text = pokemonsType[0];
-            labelHP.Text = "HP: " + (int)(pokemonsMaxHealth[0] *((float)pokemonsHealth[0]/100)) + "/" + pokemonsMaxHealth[0];
-            labelAttack.Text = "Att: " + pokemonsAttack[0];
+            labelHP.Text = "HP: " + (int)((pokemonsMaxHealth[0] + 0.1f * pokemonsLevel[0]) * ((float)pokemonsHealth[0] / 100)) +
+                "/" + (int)(pokemonsMaxHealth[0] + 0.1f * pokemonsLevel[0]);
+            labelAttack.Text = "Att: " + (pokemonsAttack[0] + 0.05f * pokemonsLevel[0]);
             labelLevel.Text = "Exp: " + pokemonsLevel[0];
             Image imagePokemon = Image.FromFile("pokemon1.png");
             picturePokemon.Image = imagePokemon;
@@ -361,10 +362,12 @@ namespace pokemon_client
             labelHealth2.Hide();
             buttonAttack.Hide();
             comboBoxPokemons.Show();
+            buttonFight.Show();
+            buttonFeed.Show();
             labelType.Show();
-            labelName.Show();
             labelHP.Show();
-            labelHP.Text = "HP: " + (int)(pokemonsMaxHealth[selectedPk] * (pokemonsHealth[selectedPk] / 100)) + "/" + pokemonsMaxHealth[selectedPk];
+            labelHP.Text = "HP: " + (int)((pokemonsMaxHealth[selectedPk] + 0.1f * pokemonsLevel[selectedPk]) * ((float)pokemonsHealth[selectedPk] / 100)) +
+                "/" + (int)(pokemonsMaxHealth[selectedPk] + 0.1f * pokemonsLevel[selectedPk]);
             labelAttack.Show();
             picturePokemon.Show();
             Image imagePokemon = Image.FromFile("pokemonHose.jpg");
