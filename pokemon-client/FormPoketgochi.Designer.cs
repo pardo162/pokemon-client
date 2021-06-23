@@ -37,7 +37,15 @@ namespace pokemon_client
             this.labelName = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.comboBoxPokemons = new System.Windows.Forms.ComboBox();
+            this.labelType = new System.Windows.Forms.Label();
+            this.labelHP = new System.Windows.Forms.Label();
+            this.labelAttack = new System.Windows.Forms.Label();
+            this.picturePokemon = new System.Windows.Forms.PictureBox();
+            this.buttonFeed = new System.Windows.Forms.Button();
+            this.buttonFight = new System.Windows.Forms.Button();
+            this.labelLevel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePokemon)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureMain
@@ -113,12 +121,90 @@ namespace pokemon_client
             this.comboBoxPokemons.Name = "comboBoxPokemons";
             this.comboBoxPokemons.Size = new System.Drawing.Size(151, 28);
             this.comboBoxPokemons.TabIndex = 7;
+            this.comboBoxPokemons.SelectedIndexChanged += new System.EventHandler(this.comboBoxPokemons_SelectedIndexChanged);
+            // 
+            // labelType
+            // 
+            this.labelType.AutoSize = true;
+            this.labelType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.labelType.Location = new System.Drawing.Point(581, 118);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(40, 20);
+            this.labelType.TabIndex = 8;
+            this.labelType.Text = "Type";
+            // 
+            // labelHP
+            // 
+            this.labelHP.AutoSize = true;
+            this.labelHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.labelHP.Location = new System.Drawing.Point(581, 156);
+            this.labelHP.Name = "labelHP";
+            this.labelHP.Size = new System.Drawing.Size(31, 20);
+            this.labelHP.TabIndex = 9;
+            this.labelHP.Text = "HP:";
+            // 
+            // labelAttack
+            // 
+            this.labelAttack.AutoSize = true;
+            this.labelAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.labelAttack.Location = new System.Drawing.Point(580, 195);
+            this.labelAttack.Name = "labelAttack";
+            this.labelAttack.Size = new System.Drawing.Size(32, 20);
+            this.labelAttack.TabIndex = 10;
+            this.labelAttack.Text = "Att:";
+            // 
+            // picturePokemon
+            // 
+            this.picturePokemon.Location = new System.Drawing.Point(296, 208);
+            this.picturePokemon.Name = "picturePokemon";
+            this.picturePokemon.Size = new System.Drawing.Size(185, 177);
+            this.picturePokemon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picturePokemon.TabIndex = 11;
+            this.picturePokemon.TabStop = false;
+            // 
+            // buttonFeed
+            // 
+            this.buttonFeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonFeed.Location = new System.Drawing.Point(86, 92);
+            this.buttonFeed.Name = "buttonFeed";
+            this.buttonFeed.Size = new System.Drawing.Size(94, 28);
+            this.buttonFeed.TabIndex = 12;
+            this.buttonFeed.Text = "Feed";
+            this.buttonFeed.UseVisualStyleBackColor = false;
+            // 
+            // buttonFight
+            // 
+            this.buttonFight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonFight.Location = new System.Drawing.Point(86, 149);
+            this.buttonFight.Name = "buttonFight";
+            this.buttonFight.Size = new System.Drawing.Size(94, 29);
+            this.buttonFight.TabIndex = 13;
+            this.buttonFight.Text = "Fight";
+            this.buttonFight.UseVisualStyleBackColor = false;
+            // 
+            // labelLevel
+            // 
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.labelLevel.Location = new System.Drawing.Point(581, 232);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(36, 20);
+            this.labelLevel.TabIndex = 14;
+            this.labelLevel.Text = "Exp:";
             // 
             // FormPoketgochi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelLevel);
+            this.Controls.Add(this.buttonFight);
+            this.Controls.Add(this.buttonFeed);
+            this.Controls.Add(this.picturePokemon);
+            this.Controls.Add(this.labelAttack);
+            this.Controls.Add(this.labelHP);
+            this.Controls.Add(this.labelType);
             this.Controls.Add(this.comboBoxPokemons);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelName);
@@ -130,6 +216,7 @@ namespace pokemon_client
             this.Text = "Poketgochi";
             this.Load += new System.EventHandler(this.FormPoketgochi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePokemon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +231,13 @@ namespace pokemon_client
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.ComboBox comboBoxPokemons;
+        private System.Windows.Forms.Label labelType;
+        private System.Windows.Forms.Label labelHP;
+        private System.Windows.Forms.Label labelAttack;
+        private System.Windows.Forms.PictureBox picturePokemon;
+        private System.Windows.Forms.Button buttonFeed;
+        private System.Windows.Forms.Button buttonFight;
+        private System.Windows.Forms.Label labelLevel;
     }
 }
 
