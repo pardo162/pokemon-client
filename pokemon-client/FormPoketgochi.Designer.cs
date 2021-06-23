@@ -44,8 +44,19 @@ namespace pokemon_client
             this.buttonFeed = new System.Windows.Forms.Button();
             this.buttonFight = new System.Windows.Forms.Button();
             this.labelLevel = new System.Windows.Forms.Label();
+            this.pictureFighter1 = new System.Windows.Forms.PictureBox();
+            this.pictureFighter2 = new System.Windows.Forms.PictureBox();
+            this.buttonAttack = new System.Windows.Forms.Button();
+            this.labelHealth2 = new System.Windows.Forms.Label();
+            this.labelHealth1 = new System.Windows.Forms.Label();
+            this.pictureHit2 = new System.Windows.Forms.PictureBox();
+            this.pictureHit1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePokemon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFighter1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFighter2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHit1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureMain
@@ -171,6 +182,7 @@ namespace pokemon_client
             this.buttonFeed.TabIndex = 12;
             this.buttonFeed.Text = "Feed";
             this.buttonFeed.UseVisualStyleBackColor = false;
+            this.buttonFeed.Click += new System.EventHandler(this.buttonFeed_Click);
             // 
             // buttonFight
             // 
@@ -181,6 +193,7 @@ namespace pokemon_client
             this.buttonFight.TabIndex = 13;
             this.buttonFight.Text = "Fight";
             this.buttonFight.UseVisualStyleBackColor = false;
+            this.buttonFight.Click += new System.EventHandler(this.buttonFight_Click);
             // 
             // labelLevel
             // 
@@ -192,12 +205,88 @@ namespace pokemon_client
             this.labelLevel.TabIndex = 14;
             this.labelLevel.Text = "Exp:";
             // 
+            // pictureFighter1
+            // 
+            this.pictureFighter1.Location = new System.Drawing.Point(512, 182);
+            this.pictureFighter1.Name = "pictureFighter1";
+            this.pictureFighter1.Size = new System.Drawing.Size(209, 233);
+            this.pictureFighter1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureFighter1.TabIndex = 15;
+            this.pictureFighter1.TabStop = false;
+            // 
+            // pictureFighter2
+            // 
+            this.pictureFighter2.Location = new System.Drawing.Point(81, 182);
+            this.pictureFighter2.Name = "pictureFighter2";
+            this.pictureFighter2.Size = new System.Drawing.Size(209, 233);
+            this.pictureFighter2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureFighter2.TabIndex = 16;
+            this.pictureFighter2.TabStop = false;
+            // 
+            // buttonAttack
+            // 
+            this.buttonAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonAttack.Location = new System.Drawing.Point(361, 279);
+            this.buttonAttack.Name = "buttonAttack";
+            this.buttonAttack.Size = new System.Drawing.Size(94, 47);
+            this.buttonAttack.TabIndex = 17;
+            this.buttonAttack.Text = "Attack";
+            this.buttonAttack.UseVisualStyleBackColor = false;
+            this.buttonAttack.Click += new System.EventHandler(this.buttonAttack_Click);
+            // 
+            // labelHealth2
+            // 
+            this.labelHealth2.AutoSize = true;
+            this.labelHealth2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.labelHealth2.Location = new System.Drawing.Point(130, 118);
+            this.labelHealth2.Name = "labelHealth2";
+            this.labelHealth2.Size = new System.Drawing.Size(28, 20);
+            this.labelHealth2.TabIndex = 18;
+            this.labelHealth2.Text = "HP";
+            // 
+            // labelHealth1
+            // 
+            this.labelHealth1.AutoSize = true;
+            this.labelHealth1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.labelHealth1.Location = new System.Drawing.Point(627, 118);
+            this.labelHealth1.Name = "labelHealth1";
+            this.labelHealth1.Size = new System.Drawing.Size(36, 20);
+            this.labelHealth1.TabIndex = 19;
+            this.labelHealth1.Text = "HP1";
+            // 
+            // pictureHit2
+            // 
+            this.pictureHit2.Image = global::pokemon_client.Properties.Resources.hit1;
+            this.pictureHit2.Location = new System.Drawing.Point(141, 208);
+            this.pictureHit2.Name = "pictureHit2";
+            this.pictureHit2.Size = new System.Drawing.Size(71, 75);
+            this.pictureHit2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureHit2.TabIndex = 20;
+            this.pictureHit2.TabStop = false;
+            // 
+            // pictureHit1
+            // 
+            this.pictureHit1.Image = global::pokemon_client.Properties.Resources.hit;
+            this.pictureHit1.Location = new System.Drawing.Point(592, 208);
+            this.pictureHit1.Name = "pictureHit1";
+            this.pictureHit1.Size = new System.Drawing.Size(71, 75);
+            this.pictureHit1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureHit1.TabIndex = 21;
+            this.pictureHit1.TabStop = false;
+            // 
             // FormPoketgochi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureHit1);
+            this.Controls.Add(this.pictureHit2);
+            this.Controls.Add(this.labelHealth1);
+            this.Controls.Add(this.labelHealth2);
+            this.Controls.Add(this.buttonAttack);
+            this.Controls.Add(this.pictureFighter2);
+            this.Controls.Add(this.pictureFighter1);
             this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.buttonFight);
             this.Controls.Add(this.buttonFeed);
@@ -217,6 +306,10 @@ namespace pokemon_client
             this.Load += new System.EventHandler(this.FormPoketgochi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePokemon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFighter1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFighter2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +331,13 @@ namespace pokemon_client
         private System.Windows.Forms.Button buttonFeed;
         private System.Windows.Forms.Button buttonFight;
         private System.Windows.Forms.Label labelLevel;
+        private System.Windows.Forms.PictureBox pictureFighter1;
+        private System.Windows.Forms.PictureBox pictureFighter2;
+        private System.Windows.Forms.Button buttonAttack;
+        private System.Windows.Forms.Label labelHealth2;
+        private System.Windows.Forms.Label labelHealth1;
+        private System.Windows.Forms.PictureBox pictureHit2;
+        private System.Windows.Forms.PictureBox pictureHit1;
     }
 }
 
