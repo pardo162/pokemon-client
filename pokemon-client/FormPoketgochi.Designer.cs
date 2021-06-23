@@ -51,12 +51,14 @@ namespace pokemon_client
             this.labelHealth1 = new System.Windows.Forms.Label();
             this.pictureHit2 = new System.Windows.Forms.PictureBox();
             this.pictureHit1 = new System.Windows.Forms.PictureBox();
+            this.pictureHeart = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFighter1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFighter2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHeart)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureMain
@@ -274,12 +276,23 @@ namespace pokemon_client
             this.pictureHit1.TabIndex = 21;
             this.pictureHit1.TabStop = false;
             // 
+            // pictureHeart
+            // 
+            this.pictureHeart.Image = global::pokemon_client.Properties.Resources.heart;
+            this.pictureHeart.Location = new System.Drawing.Point(338, 232);
+            this.pictureHeart.Name = "pictureHeart";
+            this.pictureHeart.Size = new System.Drawing.Size(66, 64);
+            this.pictureHeart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureHeart.TabIndex = 22;
+            this.pictureHeart.TabStop = false;
+            // 
             // FormPoketgochi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureHeart);
             this.Controls.Add(this.pictureHit1);
             this.Controls.Add(this.pictureHit2);
             this.Controls.Add(this.labelHealth1);
@@ -310,6 +323,7 @@ namespace pokemon_client
             ((System.ComponentModel.ISupportInitialize)(this.pictureFighter2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHeart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,6 +352,7 @@ namespace pokemon_client
         private System.Windows.Forms.Label labelHealth1;
         private System.Windows.Forms.PictureBox pictureHit2;
         private System.Windows.Forms.PictureBox pictureHit1;
+        private System.Windows.Forms.PictureBox pictureHeart;
     }
 }
 
