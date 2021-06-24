@@ -90,7 +90,6 @@ namespace pokemon_client
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(125, 27);
             this.textName.TabIndex = 3;
-            this.textName.Text = "test";
             this.textName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textPassword
@@ -101,7 +100,6 @@ namespace pokemon_client
             this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(125, 27);
             this.textPassword.TabIndex = 4;
-            this.textPassword.Text = "1234";
             this.textPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelName

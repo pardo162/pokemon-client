@@ -146,6 +146,10 @@ namespace pokemon_client
                 fighterAttack = (int)(pokemonsAttack[selectedPk] + 0.05f * pokemonsLevel[selectedPk]);
                 _ = GetRival();
             }
+            else if(pokemonsHealth[selectedPk] <= 10)
+            {
+                MessageBox.Show("HP is too low");
+            }
         }
 
         private async Task GetRival()
@@ -197,6 +201,10 @@ namespace pokemon_client
             {
                 loading = true;
                 _ = FeedPokemon();
+            }
+            else if (pokemonsHealth[selectedPk] == 100)
+            {
+                MessageBox.Show("HP is full");
             }
         }
 
